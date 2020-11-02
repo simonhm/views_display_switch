@@ -1,0 +1,11 @@
+{
+    "name": "drupal/views_display_switch",
+    "type": "drupal-module",
+    "description": "Provides links to switch between displays in views",
+    "license": "GPL-2.0+",
+    "homepage": "https://www.drupal.org/project/views_display_switch",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/views_display_switch",
+        "source": "http://cgit.drupalcode.org/views_display_switch",
+    }
+}
