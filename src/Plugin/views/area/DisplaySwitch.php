@@ -241,8 +241,8 @@ class DisplaySwitch extends AreaPluginBase {
    */
   protected function getDisplayLink($display_id, $label, $query) {
     $classes = [
-      'views-display-switcher',
-      'views-display-switcher--' . $display_id,
+      'views-display-switch__link',
+      'views-display-switch__link--' . $display_id,
     ];
     if ($display_id === $this->view->current_display) {
       $classes[] = 'views-display-switcher--active';
