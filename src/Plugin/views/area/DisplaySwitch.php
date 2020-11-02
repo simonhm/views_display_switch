@@ -2,6 +2,7 @@
 
 namespace Drupal\views_display_switch\Plugin\views\area;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\EventSubscriber\AjaxResponseSubscriber;
 use Drupal\Core\EventSubscriber\MainContentViewSubscriber;
 use Drupal\Core\Form\FormBuilderInterface;
@@ -242,7 +243,7 @@ class DisplaySwitch extends AreaPluginBase {
   protected function getDisplayLink($display_id, $label, $query) {
     $classes = [
       'views-display-switch__link',
-      'views-display-switch__link--' . $display_id,
+      'views-display-switch__link--' . Html::getClass($display_id),
     ];
     if ($display_id === $this->view->current_display) {
       $classes[] = 'views-display-switch__link--active';
