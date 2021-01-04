@@ -69,8 +69,8 @@ function views_display_switch_views_pre_view(ViewExecutable $view, $display_id, 
   // Setting display in case a GET parameter is set.
   if (in_array('display_switch', $plugin_ids)) {
     $request_mode = \Drupal::request()->get('mode');
-    if ($request_mode === $display_id) {
-      $view->setDisplay($display_id);
+    if ($request_mode != $display_id) {
+      $view->setDisplay($request_mode);
     }
   }
 }
