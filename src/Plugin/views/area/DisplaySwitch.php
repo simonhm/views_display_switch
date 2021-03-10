@@ -71,7 +71,7 @@ class DisplaySwitch extends AreaPluginBase {
       $form['displays'] = [
         '#type' => 'fieldset',
         '#title' => $this->t('Displays'),
-        '#description' => $this->t('Select the displays you want the dieplays switch to display.'),
+        '#description' => $this->t('Select the displays you want the displays switch to display.'),
       ];
       foreach ($allowed_displays as $key => $allowed_display) {
 
