@@ -38,6 +38,15 @@ class DisplaySwitch extends AreaPluginBase {
 
     $allowed_displays = [];
     $displays = $this->view->storage->get('display');
+
+    // Sort the displays.
+    uasort($displays, function ($display1, $display2) {
+      if ($display1['position'] != $display2['position']) {
+          return $display1['position'] < $display2['position'] ? -1 : 1;
+      }
+      return 0;
+    });
+
     foreach ($displays as $display_id => $display) {
       if (!$this->isAllowedDisplay($display_id)) {
         unset($displays[$display_id]);
