@@ -1,7 +1,7 @@
 name: 'Views display switch'
 type: module
 description: 'Provides links to switch between displays in views'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 package: 'Custom'
 dependencies:
   - drupal:views

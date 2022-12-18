@@ -17,7 +17,15 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['views_display_switch'];
+  protected static $modules = ['views_display_switch'];
+
+  /**
+   * The theme to install as the default for testing.
+   *
+   * @var string
+   */
+
+  protected $defaultTheme = 'claro';
 
   /**
    * A user with permission to administer site configuration.
@@ -29,7 +37,7 @@ class LoadTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->user = $this->drupalCreateUser(['administer site configuration']);
     $this->drupalLogin($this->user);
