@@ -223,7 +223,7 @@ class DisplaySwitch extends AreaPluginBase {
 
     foreach ($this->options['displays'] as $display_id => $values) {
       if ($values['enabled'] === 1 && $this->isAllowedDisplay($display_id)) {
-        $links[$display_id] = $this->getDisplayLink($display_id, $this->t($values['label'], [], ['context' => 'Views display switch']), $query);
+        $links[$display_id] = $this->getDisplayLink($display_id, $values['label'], $query);
       }
     }
 
