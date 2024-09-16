@@ -120,7 +120,7 @@ class DisplaySwitch extends AreaPluginBase {
     // Do not add errors for the default display if it is not displayed in the
     // UI.
     if ($this->displayHandler->isDefaultDisplay() && !\Drupal::config('views.settings')
-        ->get('ui.show.master_display')) {
+      ->get('ui.show.master_display')) {
       return $errors;
     }
 
@@ -219,12 +219,11 @@ class DisplaySwitch extends AreaPluginBase {
       unset($query[$key]);
     }
 
-
     $links = [];
 
     foreach ($this->options['displays'] as $display_id => $values) {
       if ($values['enabled'] === 1 && $this->isAllowedDisplay($display_id)) {
-        $links[$display_id] = $this->getDisplayLink($display_id, $values['label'], $query);
+        $links[$display_id] = $this->getDisplayLink($display_id, $this->t($values['label'], [], ['context' => 'Views display switch']), $query);
       }
     }
 
@@ -241,7 +240,7 @@ class DisplaySwitch extends AreaPluginBase {
    *   The display ID to generate the link for.
    *
    * @param string $label
-   *   The label to be used in for the link
+   *   The label to be used in for the link.
    *
    * @param string $query
    *   The query to be appended to the url to maintain pager and filters.
@@ -258,19 +257,19 @@ class DisplaySwitch extends AreaPluginBase {
       $classes[] = 'views-display-switch__link--active';
     }
 
-    // Generate Url for page displays
+    // Generate Url for page displays.
     if ($this->isPathBasedDisplay($display_id)) {
       $url = $this->view->getUrl($this->view->args, $display_id)
         ->setOptions(['query' => $query]);
     }
-    // Generate Url for block displays
+    // Generate Url for block displays.
     else {
       if ($this->isBlockDisplay($display_id)) {
         // @TDOD: This is kind of hacky, since Url::fromRoute('<current>') doesn't work.
         $current_path = \Drupal::service('path.current')->getPath();
         $url = Url::fromUserInput($current_path)->setOption('query', [
-            'mode' => $display_id,
-          ] + $query);
+          'mode' => $display_id,
+        ] + $query);
       }
       else {
         return [];

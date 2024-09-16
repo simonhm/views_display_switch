@@ -32,8 +32,8 @@ function views_display_switch_theme() {
     'views_display_switch' => [
       'render element' => 'children',
       'variables' => [
-        'links' => []
-      ]
+        'links' => [],
+      ],
     ],
   ];
 }
@@ -54,12 +54,11 @@ function views_display_switch_views_data() {
   return $data;
 }
 
-
 /**
  * Implements hook_views_pre_view().
  */
 function views_display_switch_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
-  // @TODO: This is quite ugly. Is there a nicer way to do this?
+  // @todo This is quite ugly. Is there a nicer way to do this?
   // Getting all plugin ids used in the header and the footer of the view.
   $handlers = [];
   $handlers += $view->getHandlers('header');
